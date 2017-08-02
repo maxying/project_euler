@@ -2,6 +2,40 @@ import scala.annotation.tailrec
 import scala.math.{log, sqrt}
 
 package object euler {
+
+  /* ********** UTILITY ********** */
+
+  implicit class InStuff[T](val x: T) extends AnyVal {
+    def in(coll: Seq[T]): Boolean = coll.contains(x)
+    def in(coll: Set[T]): Boolean = coll.contains(x)
+    def in(coll: Map[T, _]): Boolean = coll.contains(x)
+  }
+
+  def timeit[T](thunk: => T): T = {
+    val start = System.nanoTime()
+    val res = thunk
+    val end = System.nanoTime()
+    println(s"Time ${(end - start) / 1000} ms")
+    res
+  }
+
+
+  /* ********** MATH ********** */
+
+  /** Power for integers when math.pow is overkill */
+  def pow(n: Int, p: Int): Int = {
+    if (p == 0)          1
+    else if (p == 1)     n
+    else if (p % 2 == 0) pow(n * n, p / 2)
+    else                 n * pow(n * n, p / 2)
+  }
+  def pow(n: Long, p: Long): Long = {
+    if (p == 0)          1
+    else if (p == 1)     n
+    else if (p % 2 == 0) pow(n * n, p / 2)
+    else                 n * pow(n * n, p / 2)
+  }
+
   /** F_0 = 0; F_1 = 1 */
   def fib(n: Int): Long = {
     @tailrec

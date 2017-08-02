@@ -1,4 +1,5 @@
-package euler.p001_p020
+package euler
+package p001_p020
 
 object P008 {
   def answer: Long = {

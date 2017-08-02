@@ -9,6 +9,6 @@ object P005 {
       else 1 + multiplicity(prime, n / prime)
     }
     val prod = for (prime <- primesLeq(20)) yield (prime, multiplicity(prime, n))
-    prod.foldLeft(1){ case (acc, (p, deg)) => acc * math.pow(p, deg).toInt }
+    prod.foldLeft(1){ case (acc, (p, deg)) => acc * pow(p, deg) }
   }
 }

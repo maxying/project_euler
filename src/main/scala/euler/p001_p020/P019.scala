@@ -4,8 +4,8 @@ package p001_p020
 object P019 {
   def answer: Int = {
     def daysInMonth(month: Int, year: Int): Int = {
-      if (Set(1,3,5,7,8,10,12) contains month) 31
-      else if (Set(4,6,9,11) contains month) 30
+      if (month in Set(1,3,5,7,8,10,12)) 31
+      else if (month in Set(4,6,9,11)) 30
       else if (isLeapYear(year)) 29
       else 28
     }

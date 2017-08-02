@@ -3,7 +3,7 @@ package p021_p040
 
 object P030 {
   def answer: Int = {
-    def fifthPow(n: Int): Int = n * n * n * n * n
+    def fifthPow(n: Int) = pow(n, 5)
     def sumDigits5thPower(n: Int): Int = n.toString.map(c => fifthPow(c.asDigit)).sum
 
     val limit = 5 * fifthPow(9)
